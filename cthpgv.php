@@ -207,29 +207,30 @@ include_once("Model/mKetNoiADHT.php");
 $p= new ketnoiAD();
 $kn= $p->ketnoi($ketnoi);
 if($kn){
-$cm= strtoupper(trim($sheet->getCellByColumnAndRow(1,1)->getValue()));
-$gik= strtoupper(trim($sheet->getCellByColumnAndRow(7,1)->getValue()));
-$cuk= strtoupper(trim($sheet->getCellByColumnAndRow(11,1)->getValue()));
+$cm= strtoupper(trim($sheet->getCellByColumnAndRow(0,1)->getValue()));
+$gik= strtoupper(trim($sheet->getCellByColumnAndRow(6,1)->getValue()));
+$cuk= strtoupper(trim($sheet->getCellByColumnAndRow(10,1)->getValue()));
 
 if($cm!="MSSV"|| $gik!="GK" || $cuk!="CK"){
+    
 	echo "<script>alert('Lỗi: File Excel Không Đúng Định Dạng!\\n\\nĐộc được:\\nCột A: [$cm] | Cột G: [$gik] | Cột K: [$cuk]\\n\\nCần phải là:\\nCột A: MSSV | Cột G: GK | Cột K: CK\\n\\nLưu ý: Cột B, C nên có dữ liệu (không để trống)!')</script>";
 }
 else{
 for ($row = 2; $row <= $highestRow; $row++){ 
     // Lấy dữ liệu từng dòng và đưa vào mảng $rowData
-    $m= $sheet->getCellByColumnAndRow(1,$row)->getValue();
+    $m= $sheet->getCellByColumnAndRow(0,$row)->getValue();
 	$sql="select * from sinhvien where masosinhvien='$m'";
 	$qr=mysql_query($sql);
 	$d=mysql_fetch_assoc($qr);
 	$id=$d['id_sinhvien'];
-	$tk1= $sheet->getCellByColumnAndRow(4,$row)->getValue();
-	$tk2= $sheet->getCellByColumnAndRow(5,$row)->getValue();
-	$tk3= $sheet->getCellByColumnAndRow(6,$row)->getValue();
-	$gk= $sheet->getCellByColumnAndRow(7,$row)->getValue();
-	$th1= $sheet->getCellByColumnAndRow(8,$row)->getValue();
-	$th2= $sheet->getCellByColumnAndRow(9,$row)->getValue();
-	$th3= $sheet->getCellByColumnAndRow(10,$row)->getValue();
-	$ck= $sheet->getCellByColumnAndRow(11,$row)->getValue();
+	$tk1= $sheet->getCellByColumnAndRow(3,$row)->getValue();
+	$tk2= $sheet->getCellByColumnAndRow(4,$row)->getValue();
+	$tk3= $sheet->getCellByColumnAndRow(5,$row)->getValue();
+	$gk= $sheet->getCellByColumnAndRow(6,$row)->getValue();
+	$th1= $sheet->getCellByColumnAndRow(7,$row)->getValue();
+	$th2= $sheet->getCellByColumnAndRow(8,$row)->getValue();
+	$th3= $sheet->getCellByColumnAndRow(9,$row)->getValue();
+	$ck= $sheet->getCellByColumnAndRow(10,$row)->getValue();
 	$ihp=$_REQUEST['ihp'];
 	$sql="select * from hocphan where md5(id_hocphan)='$ihp'";
 	$qr=mysql_query($sql);
@@ -474,36 +475,41 @@ $highestColumn = $sheet->getHighestColumn();
 include_once("Model/mKetNoiADHT.php");
 $p= new ketnoiAD();
 $kn= $p->ketnoi($ketnoi);
+var_dump($kn);exit;
 if($kn){
-$cm= trim($sheet->getCellByColumnAndRow(1,1)->getValue());
-$tk1h= trim($sheet->getCellByColumnAndRow(4,1)->getValue());
-$tk2h= trim($sheet->getCellByColumnAndRow(5,1)->getValue());
-$tk3h= trim($sheet->getCellByColumnAndRow(6,1)->getValue());
-$gik= trim($sheet->getCellByColumnAndRow(7,1)->getValue());
-$th1h= trim($sheet->getCellByColumnAndRow(8,1)->getValue());
-$th2h= trim($sheet->getCellByColumnAndRow(9,1)->getValue());
-$th3h= trim($sheet->getCellByColumnAndRow(10,1)->getValue());
-$cuk= trim($sheet->getCellByColumnAndRow(11,1)->getValue());
+$cm= trim($sheet->getCellByColumnAndRow(0,1)->getValue());
+$tk1h= trim($sheet->getCellByColumnAndRow(3,1)->getValue());
+$tk2h= trim($sheet->getCellByColumnAndRow(4,1)->getValue());
+$tk3h= trim($sheet->getCellByColumnAndRow(5,1)->getValue());
+$gik= trim($sheet->getCellByColumnAndRow(6,1)->getValue());
+$th1h= trim($sheet->getCellByColumnAndRow(7,1)->getValue());
+$th2h= trim($sheet->getCellByColumnAndRow(8,1)->getValue());
+$th3h= trim($sheet->getCellByColumnAndRow(9,1)->getValue());
+$cuk= trim($sheet->getCellByColumnAndRow(10,1)->getValue());
+
+
+
 
 if($cm!="MSSV"|| $gik!="GK" || $cuk!="CK"){
+  
 	echo "<script>alert('Lỗi: File Excel Tải Lên Để Cập Nhật Điểm Không Đúng!\\n\\nĐộc được:\\nCột A: [$cm]\\nCột G: [$gik]\\nCột K: [$cuk]\\n\\nCần phải là:\\nCột A: MSSV\\nCột D: TK1\\nCột E: TK2\\nCột F: TK3\\nCột G: GK\\nCột H: TH1\\nCột I: TH2\\nCột J: TH3\\nCột K: CK')</script>";
 }
 else{
 for ($row = 2; $row <= $highestRow; $row++){ 
     // Lấy dữ liệu từng dòng và đưa vào mảng $rowData
-    $m= $sheet->getCellByColumnAndRow(1,$row)->getValue();
+    $m= $sheet->getCellByColumnAndRow(0,$row)->getValue();
 	$sql="select * from sinhvien where masosinhvien='$m'";
 	$qr=mysql_query($sql);
 	$d=mysql_fetch_assoc($qr);
 	$id=$d['id_sinhvien'];
-	$tk1= $sheet->getCellByColumnAndRow(4,$row)->getValue();
-	$tk2= $sheet->getCellByColumnAndRow(5,$row)->getValue();
-	$tk3= $sheet->getCellByColumnAndRow(6,$row)->getValue();
-	$gk= $sheet->getCellByColumnAndRow(7,$row)->getValue();
-	$th1= $sheet->getCellByColumnAndRow(8,$row)->getValue();
-	$th2= $sheet->getCellByColumnAndRow(9,$row)->getValue();
-	$th3= $sheet->getCellByColumnAndRow(10,$row)->getValue();
-	$ck= $sheet->getCellByColumnAndRow(11,$row)->getValue();
+	$tk1= $sheet->getCellByColumnAndRow(3,$row)->getValue();
+	$tk2= $sheet->getCellByColumnAndRow(4,$row)->getValue();
+	$tk3= $sheet->getCellByColumnAndRow(5,$row)->getValue();
+	$gk= $sheet->getCellByColumnAndRow(6,$row)->getValue();
+	$th1= $sheet->getCellByColumnAndRow(7,$row)->getValue();
+	$th2= $sheet->getCellByColumnAndRow(8,$row)->getValue();
+	$th3= $sheet->getCellByColumnAndRow(9,$row)->getValue();
+	$ck= $sheet->getCellByColumnAndRow(10,$row)->getValue();
 	$ihp=$_REQUEST['ihp'];
 	$sql="select * from hocphan where md5(id_hocphan)='$ihp'";
 	$qr=mysql_query($sql);
@@ -512,6 +518,9 @@ for ($row = 2; $row <= $highestRow; $row++){
 	$ig=$_REQUEST['ig'];
 	$il=$_REQUEST['il'];
 	$f=$_FILES['f']['name'];
+
+
+
 	//Kiểm tra ràng buộc về điểm
 	if(($tk1>10||$tk1<0)||($tk2>10||$tk2<0)||($tk3>10||$tk3<0)||($gk>10||$gk<0)||($th1>10||$th1<0)||($th2>10||$th2<0)||
 	($th3>10||$th3<0)||($ck>10||$ck<0)){
@@ -3714,7 +3723,7 @@ if($n==$ig||$m==$ig){
     <p></p>
     <p style="font-size:18px;">
     &nbsp;&nbsp;&nbsp;
-        <img src="https://tse4.mm.bing.net/th?id=OIP.z_7a6dhGya62Do1gB6MVBAHaHa&pid=Api&P=0&h=180" height="20px" width="20px" />&nbsp;<?php 
+        <img src="https://tse4.mm.bing.net/th?id=OIP.CGIZlGWVwNcbkM97pcQajQHaJ-&pid=Api&P=0&h=180" height="20px" width="20px" />&nbsp;<?php 
 		echo $tl['tieude'];
 		?></a>&nbsp;&nbsp;|&nbsp;<a href="cthpgv.php?bm=<?php echo $_REQUEST['bm'] ?>&&ig=<?php echo $_REQUEST['ig'] ?>&&ihp=<?php echo $_REQUEST['ihp'] ?>&&il=<?php echo $_REQUEST['il'] ?>&&id=<?php echo $tl['id_btth']; ?>&&suanth&&gd"><img src="https://tse1.mm.bing.net/th?id=OIP.fuaJLF-qmrT5gP7eXrRm2wHaHa&pid=Api&rs=1&c=1&qlt=95&w=121&h=121"
         height="20px" width="20px"/></a>&nbsp;<a href="cthpgv.php?bm=<?php echo $_REQUEST['bm'] ?>&&ig=<?php echo $_REQUEST['ig'] ?>&&ihp=<?php echo $_REQUEST['ihp'] ?>&&il=<?php echo $_REQUEST['il'] ?>&&id=<?php echo $tl['id_btth']; ?>&&xoanth&&gd"><img src="https://tse4.mm.bing.net/th?id=OIP.MeHH1uPILocqcbznizYrggHaHa&pid=Api&P=0&h=180"
@@ -3760,7 +3769,7 @@ if($n==$ig||$m==$ig){
     <p></p>
     <p style="font-size:18px;">
     &nbsp;&nbsp;&nbsp;
-        <img src="https://tse4.mm.bing.net/th?id=OIP.z_7a6dhGya62Do1gB6MVBAHaHa&pid=Api&P=0&h=180" height="20px" width="20px" />&nbsp;<?php 
+        <img src="https://tse4.mm.bing.net/th?id=OIP.CGIZlGWVwNcbkM97pcQajQHaJ-&pid=Api&P=0&h=180" height="20px" width="20px" />&nbsp;<?php 
 		echo $tl['tieude'];
 		?></a>&nbsp;&nbsp;|&nbsp;<a href="cthpgv.php?bm=<?php echo $_REQUEST['bm'] ?>&&ig=<?php echo $_REQUEST['ig'] ?>&&ihp=<?php echo $_REQUEST['ihp'] ?>&&il=<?php echo $_REQUEST['il'] ?>&&id=<?php echo $tl['id_btth']; ?>&&suanktth&&gd"><img src="https://tse1.mm.bing.net/th?id=OIP.fuaJLF-qmrT5gP7eXrRm2wHaHa&pid=Api&rs=1&c=1&qlt=95&w=121&h=121"
         height="20px" width="20px"/></a>&nbsp;<a href="cthpgv.php?bm=<?php echo $_REQUEST['bm'] ?>&&ig=<?php echo $_REQUEST['ig'] ?>&&ihp=<?php echo $_REQUEST['ihp'] ?>&&il=<?php echo $_REQUEST['il'] ?>&&id=<?php echo $tl['id_btth']; ?>&&xoanktth&&gd"><img src="https://tse4.mm.bing.net/th?id=OIP.MeHH1uPILocqcbznizYrggHaHa&pid=Api&P=0&h=180"

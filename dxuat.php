@@ -2,11 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Quản Lý Học Vụ</title>
 </head>
 
 <body>
 <?php session_start(); 
+// var_dump($_REQUEST);
+// exit;
 if(isset($_REQUEST['xuat'])){
     unset($_SESSION['mk']);
 	unset($_SESSION['ma']);

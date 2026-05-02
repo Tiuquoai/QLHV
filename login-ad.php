@@ -1,134 +1,93 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Trang Đăng Nhập Admin Hệ Thống</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Đăng Nhập - Quản Trị Viên</title>
 <link rel="icon" type="image/png" href="https://tse3.mm.bing.net/th?id=OIP.Mzt3QQhdBuSmGLUb3mxAgAHaDU&pid=Api&P=0&h=180"/>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-<script type="text/javascript" src="js/bootstrap.js"></script>
-<style>
-.full-width-div {
-    position: relative;
-    width: 100vw;
-    left: 0;
-}
-@media(max-width:1000px){
-
-		.table th, .table td {
-    padding: 0.25rem !important;
-		}
-		html{
-			    -webkit-text-size-adjust: 85%;
-		}
-		body{
-			font-size:.1.12rem;
-		}
-		.container {
-    max-width: 1000px;
-}
-body{
-	font-size: 25px;
-	font-weight: 300;
-}
-h5, p{
-	font-size:30px;
-}
-		
-}
-@media (max-width: 300px){
-.container {
-    max-width: 500px;
-    margin-left: -12px;
-    font-size: 19px;
-}
-}
-</style>
+<link rel="stylesheet" type="text/css" href="css/lms-modern.css"/>
 </head>
 
 <body>
-<div class="container mw-100 border">
-
-<div class="row header"  id="codinh">
-<!--Đây là phần banner-->
-<div class="row header col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:#88b77b; height:30px;    margin: 0px;" id="codinh">
-&nbsp;<center></center><p style="color:#FFF">Gọi Điện: 0143.234.563 - ext 808 &nbsp; &nbsp; Email: csm@gmail.com</p> 
+<div class="header-top">
+    <p>
+        <span>📞 Gọi Điện: 0143.234.563 - ext 808</span>
+        <span>📧 Email: csm@gmail.com</span>
+    </p>
 </div>
-<p></p>
-</div>
-<div>
-<center><img src="https://tse3.mm.bing.net/th?id=OIP.Mzt3QQhdBuSmGLUb3mxAgAHaDU&pid=Api&P=0&h=180" height="75px" width="120px" /></center>
-</div>
-<br/>
-<!--Đây là phần form đăng nhập-->
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-     <center><h3>Đăng Nhập Hệ Thống</h3></center>
-     <br/>
-     <form action="dntc.php" method="post" enctype="multipart/form-data">
-     <center><input type="text" name="a" placeholder="Nhập mã admin" size="26" required="required" /></center>
-     <p></p>
-     <center><input type="password" name="p" placeholder="Nhập mật khẩu" size="26" required="required"  /></center>
-     <p></p>
 
-
-     <input type="hidden" name="dnad" value="hoài heheheheheheheh">
-
-     		<center><input type="submit"  value="Đăng Nhập" class="abc"  />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;</center>
-   
-    
-     </form>
-     
-</div>
-<br />
-<!--Đây là phần footer-->
-<div class="row">
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 border" style="background-color:#fff">
-     <div class="row">
-     	<div class="col-xs-4 col-sm-4 col-md-44 col-lg-4">
-        <br />
-       <img src="https://tse3.mm.bing.net/th?id=OIP.mF4R5YAnHij_hccRrGDCYwAAAA&pid=Api&P=0&h=180" height="75px" width="100px" />
-        <p></p>
-        <p>Chào Mừng Các Bạn Đến Với Hệ Thống ...</p>
-        <br />
+<div class="main-header">
+    <div class="container-custom">
+        <div class="logo-section">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.Mzt3QQhdBuSmGLUb3mxAgAHaDU&pid=Api&P=0&h=180" alt="Logo" />
+            <div class="school-info">
+                <h2>Hệ Thống Quản Lý Học Vụ</h2>
+                <p>Admin Learning Management System</p>
+            </div>
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-        <p></p>
-        <h5>Liên Kết</h5>
-        <p></p>
-        - Link Liên Kết 1<p></p>
-        - Link Liên Kết 2<p></p>
-        - ...
+    </div>
+</div>
+
+<div class="login-container">
+    <div class="login-content">
+        <div class="login-box">
+            <h3>🔐 Đăng Nhập Quản Trị Viên</h3>
+            
+            <form action="dntc.php" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="username">Mã Quản Trị Viên</label>
+                    <input type="text" id="username" name="a" placeholder="Nhập mã quản trị viên" required="required" />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mật Khẩu</label>
+                    <input type="password" id="password" name="p" placeholder="Nhập mật khẩu" required="required" />
+                </div>
+
+                <input type="hidden" name="dnad" value="hoài heheheheheheheh" />
+
+                <button type="submit" class="btn-login">🔓 Đăng Nhập</button>
+            </form>
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-        <p></p>
-        <h5>Liên Hệ</h5>
-        <p></p>
-        Trung Tâm Quản Trị Hệ Thống - Trường ...
-        <p></p>
-        <img src="https://tse4.mm.bing.net/th?id=OIP.VMPvKsUQ9Q91rlEDRqsj8AHaHa&pid=Api&P=0&h=180" height="30px" width="30px" /> &nbsp; Phone :&nbsp;0143.234.563<p></p>
-         <img src="https://tse3.mm.bing.net/th?id=OIP.Ye2A24tF7KlssZxi_cffWwHaGD&pid=Api&P=0&h=180" height="30px" width="30px" /> &nbsp; Email :&nbsp;abc@gmail.com
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.mF4R5YAnHij_hccRrGDCYwAAAA&pid=Api&P=0&h=180" alt="School Logo" class="footer-logo" />
+                <p><strong>Chào Mừng Đến Với Hệ Thống Quản Lý Học Vụ</strong></p>
+                <p>Nền tảng quản trị dành cho các nhà quản lý hệ thống.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h5>⚙️ Quản Lý</h5>
+                <ul>
+                    <li>Quản lý tài khoản</li>
+                    <li>Quản lý khóa học</li>
+                    <li>Quản lý sinh viên</li>
+                    <li>Báo cáo hệ thống</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h5>📞 Liên Hệ Hỗ Trợ</h5>
+                <div class="contact-info">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.VMPvKsUQ9Q91rlEDRqsj8AHaHa&pid=Api&P=0&h=180" alt="Phone" />
+                    <span>0143.234.563</span>
+                </div>
+                <div class="contact-info">
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.Ye2A24tF7KlssZxi_cffWwHaGD&pid=Api&P=0&h=180" alt="Email" />
+                    <span>csm@gmail.com</span>
+                </div>
+                <p style="margin-top: 15px; font-size: 12px;">Trung Tâm Quản Trị Hệ Thống - Trường Đại Học</p>
+            </div>
+        </div>
         
+        <div class="footer-bottom">
+            <p>&copy; 2024 Hệ Thống Quản Lý Học Vụ. Tất cả các quyền được bảo lưu.</p>
         </div>
-     </div>
-</div>
+    </footer>
 </div>
 
-</div>
 </body>
 </html>
-<script>
-window.onscroll = function() {myFunction()};
-
-var header = document.getElementById("codinh");
-
-var sticky = header.offsetTop;
-
-function myFunction() {
-  if (window.pageYOffset > sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
-</script>

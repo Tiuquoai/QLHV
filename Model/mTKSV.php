@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Quản Lý Học Vụ</title>
 </head>
 
 <body>
@@ -12,13 +12,20 @@ include_once("mKetNoiSV.php");
 class mTKSV{
 // Kiểm tra tài khoản Sinh Viên
 function KTTKSV(){
-	$p=new ketnoisv($ketnoi);
+	// var_dump($_POST);
+	// echo '\n';
+	$p = new ketnoisv($ketnoi);
 	if($p->ketnoi($ketnoi)){
+		// echo 'con sadada';
 		if(isset($_POST['dn'])){
 			$ma=md5($_POST['a']);
 			$mk=md5($_POST['p']);
-			$sql="select * from user where user_code='$ma' && matkhau='$mk' && vaitro='0'";
-			$qr=mysql_query($sql);
+			$sql="SELECT * FROM user WHERE user_code='$ma' && matkhau='$mk' && vaitro='0'";
+			// echo $sql;
+			// var_dump($ma);
+			// var_dump($mk);
+			$qr=mysql_query($sql) ;
+			// var_dump($qr);
 			return $qr;
 		}
 		else{

@@ -9,7 +9,7 @@
 <body>
 <?php
 session_start();
-// var_dump($_POST);
+
 ob_start();
 		if(isset($_POST['dn']))
 		{
@@ -19,17 +19,28 @@ ob_start();
 				$c=$_POST['cd'];
 				$cap=$_POST['cap'];
 				// Lấy dữ liệu kiểm tra từ controller
+
 				
 				include_once("Controller/cTKSV.php");
+
 				$p=new cTKSV();
 			    $ktsv=$p->KiemTraTKSV();
 				$x=mysql_fetch_assoc($ktsv);
+				// var_dump($x);
+				// var_dump($_POST['a']);
+
 				$ma1=$x['user_code'];
 				$mk1=$x['matkhau'];
 			    if(md5($ma)!=$ma1||$matkhau==$mk1){
+						
+						// echo md5($ma1);
+						// echo "\n";
+						// echo md5($_POST['a']);
+					// exit;
 					echo header("refresh:0,url='login-sv.php");
 				}
 				elseif(md5($ma)==$ma1||$matkhau!=$mk1){
+	
 					echo header("refresh:0,url='login-sv.php");
 				}
 				elseif(md5($ma)!=$ma1||$matkhau!=$mk1){
